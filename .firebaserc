@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tp-sala-de-juegos-3ac5e": {
+      "hosting": {
+        "tp-sala-de-juegos": [
+          "garcia-juan-manuel-sala-de-juegos"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tp-sala-de-juegos-3ac5e"
+  }
+}
