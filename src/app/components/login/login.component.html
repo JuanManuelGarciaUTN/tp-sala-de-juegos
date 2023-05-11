@@ -1,16 +1,16 @@
-<form class="login-form">
+<form class="login-form" [formGroup]="formularioLogin" (ngSubmit)="logear()">
     <h3>Login</h3>
     <div class="form-group">
         <label for="username">Usuario</label>
-        <input type="text" id="username" name="username">
+        <input type="text" id="username" placeholder="Ingrese usuario" formControlName="usuario">
     </div>
     <div class="form-group">
         <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password">
+        <input type="password" id="password" placeholder="Ingrese contraseña" formControlName="password">
     </div>
     <div class="button-group">
-        <button class="login-button">Login</button>
+        <button class="login-button" [disabled]="!formularioLogin.valid">Login</button>
         <button class="register-button" routerLink="/registro">Registrarse</button>
-        <button class="forgot-password-button">¿Olvido Contraseña?</button>
+        <button class="forgot-password-button" disabled>¿Olvido Contraseña?</button>
     </div>
 </form>
