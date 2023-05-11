@@ -9,13 +9,18 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
+import { HeaderComponent } from './components/header/header.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuienSoyComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegistroComponent,
+    QuienSoyComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

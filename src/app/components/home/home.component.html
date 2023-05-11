@@ -1,1 +1,58 @@
-<p>home works!</p>
+<div class="container">
+    <div class="left">
+        <div class="list-pair">
+            <div class="list">
+                <h3>Top Ahorcado</h3>
+                <ul>
+                    <li *ngFor="let item of topAhorcado; let i = index">
+                        {{i + 1}} {{item.name}} {{item.score}}
+                    </li>
+                </ul>
+            </div>
+            <div class="list">
+                <h3>Top Preguntados</h3>
+                <ul>
+                    <li *ngFor="let item of topPreguntados; let i = index">
+                        {{i + 1}} {{item.name}} {{item.score}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="list-pair">
+            <div class="list">
+                <h3>Top Mayor > Menor</h3>
+                <ul>
+                    <li *ngFor="let item of topMayorMenor; let i = index">
+                        {{i + 1}} {{item.name}} {{item.score}}
+                    </li>
+                </ul>
+            </div>
+            <div class="list">
+                <h3>Top Blackjack</h3>
+                <ul>
+                    <li *ngFor="let item of topBlackjack; let i = index">
+                        {{i + 1}} {{item.name}} {{item.score}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <button>
+            <img src="../../../assets/juegos/ahorcado.png" alt="">
+            <p>Ahorcado</p>
+        </button>
+        <button>
+            <img src="../../../assets/juegos/preguntados.png" alt="">
+            <p>Preguntados</p>
+        </button>
+        <button>
+            <img src="../../../assets/juegos/mayor-menor.png" alt="">
+            <p>Mayor|Menor</p>
+        </button>
+        <button>
+            <img src="../../../assets/juegos/blackjac.png" alt="">
+            <p>Blackjack</p>
+        </button>
+    </div>
+</div>

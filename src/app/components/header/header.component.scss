@@ -1,0 +1,40 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    padding: 10px;
+    height: 80px;
+  }
+  
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 24px;
+  }
+  
+  .left img {
+    height: 50px;
+  }
+  
+  .right {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .right button {
+    background-color: white;
+    border: none;
+    color: green;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    min-width: 125px;
+    cursor: pointer;
+  }
+  
+  .right button:hover {
+    background-color: lightgray;
+  }

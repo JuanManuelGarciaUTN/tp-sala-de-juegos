@@ -10,9 +10,9 @@
   }
 
   .button-group{
-    margin-top: 20px;
+    width: 212px;
+    margin-top: 5px;
     display: flex;
-    flex-direction: column;
     align-items: center;
   }
   
@@ -32,8 +32,8 @@
   
   button {
     width: 100%;
-    margin: 2px 25px;
-    padding: 10px 10px;
+    margin: 2px 0px;
+    padding: 10px 0px;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
@@ -41,13 +41,8 @@
     cursor: pointer;
   }
   
-  .login-button {
-    background-color: #007f00;
-    color: #fff;
-  }
-  
   .register-button {
-    background-color: #005e00;
+    background-color: #007f00;
     color: #fff;
   }
   
