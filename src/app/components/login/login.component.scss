@@ -31,7 +31,7 @@
   }
   
   button {
-    width: 100%;
+    width: 212px;
     margin: 2px 25px;
     padding: 10px 10px;
     border: none;
@@ -50,17 +50,6 @@
     background-color: #005e00;
     color: #fff;
   }
-  
-  .forgot-password-button {
-    background-color: transparent;
-    color: #007f0000;
-    cursor: default;
-    font-weight: normal;
-  }
-  
-  .forgot-password-button:hover {
-    text-decoration: underline;
-  }
 
   .login-button:hover, .register-button:hover{
     background-color: #55b955;
@@ -73,5 +62,15 @@
 
   input.ng-invalid.ng-touched {
     border: red 1px solid;
+}
+
+small{
+  text-decoration: underline;
+  display: block;
+  width: 212px;
+}
+
+.error{
+  color: red;
 }
   

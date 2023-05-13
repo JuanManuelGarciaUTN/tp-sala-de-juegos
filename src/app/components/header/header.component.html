@@ -4,9 +4,11 @@
         <h1>Sala de Juegos</h1>
     </div>
     <div class="right">
+        <strong *ngIf="usuario.datos">Bienvenido, {{usuario.datos.nombre}}</strong>
         <button routerLink="">Home</button>
         <button routerLink="/quien-soy">Quien Soy</button>
-        <button routerLink="/login">Login</button>
-        <button routerLink="/registro">Registro</button>
+        <button *ngIf="!usuario.datos" routerLink="/login">Login</button>
+        <button *ngIf="!usuario.datos" routerLink="/registro">Registro</button>
+        <button *ngIf="usuario.datos" (click)="cerrarSesion()">Cerrar Sesión</button>
     </div>
 </nav>

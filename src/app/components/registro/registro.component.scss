@@ -23,11 +23,12 @@
   }
   
   input {
+    display: block;
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
     width: 100%;
-    max-width: 300px;
+    width: 212px;
   }
   
   button {
@@ -57,5 +58,12 @@
 
   input.ng-invalid.ng-touched {
     border: red 1px solid;
+}
+
+small{
+  text-decoration: underline;
+  color: red;
+  display: block;
+  width: 212px;
 }
   

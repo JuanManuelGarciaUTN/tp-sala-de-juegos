@@ -1,4 +1,13 @@
 <div class="container">
+    <div *ngIf="datosUsuario" class="puntaje-personal">
+        <div>
+            <div><h3>Puntaje de {{datosUsuario.nombre}}</h3></div>
+            <strong>Ahorcado: {{datosUsuario.puntajeMaxAhorcado}}</strong>
+            <strong>Preguntados: {{datosUsuario.puntajeMaxPreguntados}}</strong>
+            <strong>Mayor > Menor: {{datosUsuario.puntajeMaxMayorMenor}}</strong>
+            <strong>Blackjack: {{datosUsuario.puntajeMaxBlackjack}}</strong>
+        </div>
+    </div>
     <div class="left">
         <div class="list-pair">
             <div class="list">
@@ -48,7 +57,7 @@
         </button>
         <button>
             <img src="../../../assets/juegos/mayor-menor.png" alt="">
-            <p>Mayor|Menor</p>
+            <p>Mayor > Menor</p>
         </button>
         <button>
             <img src="../../../assets/juegos/blackjac.png" alt="">
