@@ -21,7 +21,7 @@ export class UsuarioService {
   }
 
   testing(){
-    this.usuario = {nombre: "TESTING-TESTING-TESTING-TESTING", 
+    this.usuario = {nombre: "TESTING", 
                     password: "root",
                     puntajeMaxAhorcado: 1,
                     puntajeMaxBlackjack: 5,

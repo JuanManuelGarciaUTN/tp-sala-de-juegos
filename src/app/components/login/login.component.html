@@ -17,6 +17,7 @@
     <div class="button-group">
         <button class="login-button" [disabled]="!formularioLogin.valid">Login</button>
         <button class="register-button" routerLink="/registro">Registrarse</button>
+        <button class="login-button" (click)="logearDirectamente()">Inicio Rapido</button>
     </div>
     <strong class="error" *ngIf="loginInvalido"> 
         Usuario y/o Contraseña Invalidos

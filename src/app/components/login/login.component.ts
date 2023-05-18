@@ -41,4 +41,9 @@ export class LoginComponent {
         this.loginInvalido = true;
       });
   }
+
+  logearDirectamente(){
+    this.login.testing();
+    this.router.navigate(["/home"]);
+  }
 }

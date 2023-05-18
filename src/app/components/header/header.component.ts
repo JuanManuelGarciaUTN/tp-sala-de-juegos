@@ -8,9 +8,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class HeaderComponent {
   public nombreUsuario: string|undefined;
-  constructor(public usuario: UsuarioService) { 
-    this.usuario.testing();
-  }
+  constructor(public usuario: UsuarioService) { }
 
   cerrarSesion(){
     this.usuario.cerrar();
