@@ -17,6 +17,7 @@ export class AhorcadoComponent {
   mensajeFinal: string = "";
 
   constructor(private palabraRandom: PalabraAhoracadoService) {
+    this.palabraRandom.guardarPalabras();
     this.nuevoJuego();
   }
 
@@ -29,6 +30,7 @@ export class AhorcadoComponent {
       this.palabra = this.palabraRandom.formatearPalabra(palabra[0]).split("");
       console.log(this.palabra);
       this.letrasSeleccionadas = [];
+      this.letrasSeleccionadas.push(this.palabra[0], this.palabra[this.palabra.length-1]);
       this.generandoPalabra = false;
       sub.unsubscribe();
     })
@@ -46,8 +48,7 @@ export class AhorcadoComponent {
       this.mensajeFinal = "GANASTE!";
     } 
     else if (this.calcularDerrota()) {
-      this.mostrarMensajeFinal = true;
-      this.mensajeFinal = "PERDISTE!";
+      this.Perder();
     }
   }
 
@@ -58,4 +59,11 @@ export class AhorcadoComponent {
   calcularDerrota(): boolean {
     return this.errores == 6;
   }
+
+  private Perder(){
+    this.letrasSeleccionadas.push(...this.palabra);
+    this.mostrarMensajeFinal = true;
+    this.mensajeFinal = "PERDISTE!";
+  }
+
 }

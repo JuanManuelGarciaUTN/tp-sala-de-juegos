@@ -28,4 +28,15 @@ export class PalabraAhoracadoService {
   private random(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
+  guardarPalabras(){
+    const obs = this.http.get("https://generadoraleatorio.com/page-data/palabras/page-data.json") as Observable<any>
+    const sub = obs.subscribe(data=>{
+      const palabras = [];
+      palabras.push(...data.result.data.wordsJson.spanish.nouns);
+      palabras.push(...data.result.data.wordsJson.spanish.adjectives);
+      console.log(palabras);
+      sub.unsubscribe();
+    });
+  }
 }
