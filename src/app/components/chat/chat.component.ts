@@ -24,11 +24,18 @@ export class ChatComponent {
     })
   }
 
+  get usuarioLogeado():boolean{
+    return this.usuario.datos !== undefined;
+  }
   ngDestroy(){
     this.observableMensajes.unsubscribe();
   }
   abrirChat(){
     this.chatActivo = true;
+    this.scrollChatAbajo();
+  }
+
+  private scrollChatAbajo(){
     setTimeout(() => {
       let chat = document.getElementById("chat");
       console.log(chat);
@@ -43,19 +50,23 @@ export class ChatComponent {
   }
 
   enviarMensaje(){
+    this.scrollChatAbajo();
     console.log(this.usuario.datos && this.nuevoMensaje != "");
     console.log(this.nuevoMensaje);
     console.log(this.usuario.datos);
     if(this.usuario.datos && this.nuevoMensaje != ""){
-      const hora = formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss', 'en-US', '+0530');
-      const mensaje : Mensaje = {autor: this.usuario.datos.nombre, hora: hora, texto: this.nuevoMensaje}; 
+      let hora = new Date().toISOString()
+      console.log(hora);
+      const mensaje: Mensaje = {autor: this.usuario.datos.nombre, hora: hora, texto: this.nuevoMensaje}; 
       this.dbMensajes.guardarMensaje(mensaje)
       this.nuevoMensaje = "";
     }
   }
 
   formatearMensaje(mensaje: Mensaje){
-    const hora = formatDate(mensaje.hora, "hh:mm", 'en-US', '+0530');
+    let fecha = new Date(mensaje.hora);
+    fecha.setHours(fecha.getHours() - 3);
+    const hora = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false  });
     const autor = mensaje.autor.split("@")[0];
     return  hora+"| " + autor + ": " + mensaje.texto;
   }

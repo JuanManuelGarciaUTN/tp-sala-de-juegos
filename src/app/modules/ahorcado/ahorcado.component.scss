@@ -27,9 +27,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 50%;
+    width: 40%;
   }
-  
 
   .letras-botones {
     text-transform: uppercase;
@@ -57,7 +56,7 @@
     display: flex;
   }
 
-  .letras-contenedor p{
+  .palabra-contenedor-letras p{
     text-transform: uppercase;
     font-size: 50px;
     width: 40px;
@@ -88,8 +87,9 @@
   }
 
 
-.resultado-juego {
+.mensaje {
     position: fixed;
+    background-color: #445740; 
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -100,12 +100,12 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   }
   
-  .resultado-juego h2 {
+  .mensaje h2 {
     font-size: 24px;
     margin-bottom: 20px;
   }
   
-  .resultado-juego button {
+  .mensaje button {
     display: inline-block;
     background-color: white;
     color: black;
@@ -117,15 +117,17 @@
     border-radius: 5px;
   }
   
-  .resultado-juego button:hover {
+  .mensaje button:hover {
     background-color: lightgray;
   }
   
-  .resultado-juego.ganado {
+  .mensaje.ganado {
     background-color: #4caf50; 
+    color: #fff;
   }
   
-  .resultado-juego.perdio {
+  .mensaje.perdio {
     background-color: #f44336;
+    color: #fff;
   }
   

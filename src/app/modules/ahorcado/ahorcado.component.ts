@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { PalabraAhoracadoService } from "./services/palabra-ahoracado.service";
 
 @Component({
   selector: "app-ahorcado",
@@ -6,29 +7,31 @@ import { Component } from "@angular/core";
   styleUrls: ["./ahorcado.component.scss"]
 })
 export class AhorcadoComponent {
-  palabrasPosibles: string[] = ["angular", "typescript", "auto", "periodista", "programador"];
-  palabra: Array<string> = []; 
+  palabra: Array<string> = ['E','l',' ','P','s','y',' ','K','o','n','g','r','o','o']; 
   errores: number = 0; 
   letrasSeleccionadas: string[] = []; 
   abecedario: string[] = "abcdefghijklmnñopqrstuvwxyz".split(""); 
   imagenAhorcado: string[] = ["../../../assets/juegos/ahorcado/hangman-0.png", "../../../assets/juegos/ahorcado/hangman-1.png", "../../../assets/juegos/ahorcado/hangman-2.png", "../../../assets/juegos/ahorcado/hangman-3.png", "../../../assets/juegos/ahorcado/hangman-4.png", "../../../assets/juegos/ahorcado/hangman-5.png", "../../../assets/juegos/ahorcado/hangman-6.png"];
   mostrarMensajeFinal: boolean = false; 
+  generandoPalabra: boolean = true;
   mensajeFinal: string = "";
 
-  constructor() {
+  constructor(private palabraRandom: PalabraAhoracadoService) {
     this.nuevoJuego();
   }
 
-  nuevoJuego(): void {
-    this.palabra = this.obtenerPalabra().split("");
+  async nuevoJuego(): Promise<void> {
+    this.generandoPalabra = true;
+    this.palabra= ['E','l',' ','P','s','y',' ','K','o','n','g','r','o','o']; //Easter Egg 
     this.errores = 0;
-    this.letrasSeleccionadas = [];
     this.mostrarMensajeFinal = false;
-  }
-
-  obtenerPalabra(): string {
-    const randomIndex = Math.floor(Math.random() * this.palabrasPosibles.length);
-    return this.palabrasPosibles[randomIndex];
+    const sub = this.palabraRandom.obtenerPalabra().subscribe(palabra=>{
+      this.palabra = this.palabraRandom.formatearPalabra(palabra[0]).split("");
+      console.log(this.palabra);
+      this.letrasSeleccionadas = [];
+      this.generandoPalabra = false;
+      sub.unsubscribe();
+    })
   }
 
   intentarLetra(letras: string): void {

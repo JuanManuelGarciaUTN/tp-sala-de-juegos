@@ -4,7 +4,7 @@
         <h1>Sala de Juegos</h1>
     </div>
     <div class="right">
-        <strong *ngIf="usuario.datos">Bienvenido, {{usuario.datos.nombre}}</strong>
+        <strong *ngIf="usuario.datos">Bienvenido, {{usuario.nombre}}</strong>
         <button routerLink="">Home</button>
         <button routerLink="/quien-soy">Quien Soy</button>
         <button *ngIf="!usuario.datos" routerLink="/login">Login</button>

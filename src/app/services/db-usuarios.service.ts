@@ -25,11 +25,15 @@ export class DbUsuariosService {
 
   generarLogUsuario(usuario: Usuario){
     const coleccion = collection(this.firestore, "logsSesion");
-    
     usuario.nombre = usuario.nombre.toLowerCase();
-    let dateNow = formatDate(new Date(), 'yyyy-MM-dd hh:mm:ss', 'en-US', '+0530');
+    let dateNow = new Date().toISOString()
     const log: LogSesion = {nombre: usuario.nombre, tiempo: dateNow};
    
     return addDoc(coleccion, log);
   }
+
+  actualizarDatos(usuario: Usuario){
+    const coleccion = collection(this.firestore, "usuarios");
+  }
+
 }

@@ -31,6 +31,7 @@ export class LoginComponent {
       const sub = this.dbUsuarios.obtenerUsuarios().subscribe(listaUsuarios=>{
         for(let datos of listaUsuarios){
           if(datos.nombre == usuario.nombre && datos.password == usuario.password){
+            usuario.password = "";
             this.login.iniciar(usuario)
             this.dbUsuarios.generarLogUsuario(usuario);
             this.router.navigate(["/home"]);
@@ -42,8 +43,8 @@ export class LoginComponent {
       });
   }
 
-  logearDirectamente(){
-    this.login.testing();
-    this.router.navigate(["/home"]);
+  completarLoginRapido(){
+    this.formularioLogin.get("nombre")?.setValue("testing@testing.com");
+    this.formularioLogin.get("password")?.setValue("rootrootrootroot");
   }
 }

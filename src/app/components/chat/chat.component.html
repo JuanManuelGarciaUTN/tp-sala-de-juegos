@@ -1,17 +1,20 @@
-<div class="chat" *ngIf="chatActivo">
-    <div class="cerrar"><button (click)="cerrarChat()">X</button></div>
-    <div class="chat-box" id="chat">
+<div *ngIf="usuarioLogeado">
+    <div class="chat" *ngIf="chatActivo">
+        <div class="cerrar"><button (click)="cerrarChat()">X</button></div>
+        <div class="chat-box" id="chat">
+            <div>
+                <ul>
+                    <li *ngFor="let mensaje of mensajes">{{ formatearMensaje(mensaje) }}</li>
+                </ul>
+            </div>
+        </div>
         <div>
-            <ul>
-                <li *ngFor="let mensaje of mensajes">{{ formatearMensaje(mensaje) }}</li>
-            </ul>
+            <input type="text" placeholder="Ingrese su mensaje..." [(ngModel)]="nuevoMensaje">
+            <button class="enviar" (click)="enviarMensaje()">></button>
         </div>
     </div>
-    <div>
-        <input type="text" placeholder="Ingrese su mensaje..." [(ngModel)]="nuevoMensaje">
-        <button class="enviar" (click)="enviarMensaje()">></button>
-    </div>
+    <button class="abrir" *ngIf="!chatActivo" (click)="abrirChat()"><img src="../../../assets/chat/chat.png" alt="">Chat</button>
+    
 </div>
-<button class="abrir" *ngIf="!chatActivo" (click)="abrirChat()"><img src="../../../assets/chat/chat.png" alt="">Chat</button>
 
 

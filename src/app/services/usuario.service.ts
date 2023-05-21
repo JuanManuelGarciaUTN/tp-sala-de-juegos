@@ -12,6 +12,10 @@ export class UsuarioService {
     return this.usuario;
   }
 
+  get nombre(): string{
+    return this.usuario?.nombre.split("@")[0] || "";
+  }
+
   iniciar(usuario: Usuario){
     this.usuario = usuario;
   }
@@ -20,12 +24,5 @@ export class UsuarioService {
     this.usuario = undefined;
   }
 
-  testing(){
-    this.usuario = {nombre: "TESTING", 
-                    password: "root",
-                    puntajeMaxAhorcado: 1,
-                    puntajeMaxBlackjack: 5,
-                    puntajeMaxMayorMenor: 10,
-                    puntajeMaxPreguntados: 25};
-  }
+  
 }
