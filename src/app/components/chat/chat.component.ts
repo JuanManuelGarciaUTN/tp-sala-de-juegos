@@ -15,22 +15,22 @@ export class ChatComponent {
   public chatActivo:boolean = false;
   public mensajes: Mensaje[] = [];
   public nuevoMensaje = "";
-  private observableMensajes: Subscription;
+  private observableMensajes?: Subscription;
 
-  constructor(private usuario: UsuarioService, private dbMensajes: DbMensajesService){
-    this.observableMensajes = this.dbMensajes.obtenerMensajes().subscribe(data=>{
-      data = data.reverse();
-      this.mensajes = data;
-    })
-  }
+  constructor(private usuario: UsuarioService, private dbMensajes: DbMensajesService){}
 
   get usuarioLogeado():boolean{
     return this.usuario.datos !== undefined;
   }
   ngDestroy(){
-    this.observableMensajes.unsubscribe();
+    if(this.observableMensajes)
+      this.observableMensajes.unsubscribe();
   }
   abrirChat(){
+    this.observableMensajes = this.dbMensajes.obtenerMensajes().subscribe(data=>{
+      data = data.reverse();
+      this.mensajes = data;
+    })
     this.chatActivo = true;
     this.scrollChatAbajo();
   }

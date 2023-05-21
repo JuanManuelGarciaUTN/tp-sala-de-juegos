@@ -29,16 +29,19 @@ export class LoginComponent {
       this.validando = true;
       const usuario = this.formularioLogin.value;
       const sub = this.dbUsuarios.obtenerUsuarios().subscribe(listaUsuarios=>{
+        sub.unsubscribe();
+        this.validando = false;
+        
         for(let datos of listaUsuarios){
           if(datos.nombre == usuario.nombre && datos.password == usuario.password){
-            usuario.password = "";
-            this.login.iniciar(usuario)
+            datos.password = "";
+            this.login.iniciar(datos);
             this.dbUsuarios.generarLogUsuario(usuario);
+            console.log("THIS SHIT IS IT");
             this.router.navigate(["/home"]);
             return;
           }
         }
-        this.validando = false;
         this.loginInvalido = true;
       });
   }

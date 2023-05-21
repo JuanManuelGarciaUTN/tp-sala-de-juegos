@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import Usuario from '../interfaces/usuario.interface';
+import { collection } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,5 @@ export class UsuarioService {
 
   cerrar(){
     this.usuario = undefined;
-  }
-
-  
+  }  
 }
