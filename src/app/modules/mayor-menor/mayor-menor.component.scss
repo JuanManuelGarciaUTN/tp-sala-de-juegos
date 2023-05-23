@@ -1,0 +1,161 @@
+:host {
+    height: 89vh;
+    border-bottom: solid 1px black;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+
+.contenedor {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor-imagenes {
+    display: flex;
+}
+
+.contenedor-botones {
+    display: flex;
+ margin-bottom: 2rem;
+}
+
+.contenedor-imagenes img {
+    padding: 0;
+    margin: 0rem 2rem 2rem;
+    height: 40vh;
+}
+
+button {
+    padding: 5px 1rem;
+    margin: 0rem 0.5rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.puntaje{
+    padding: 1rem 1rem;
+    margin: 0rem 0.5rem 2rem;
+    border: solid 2px gainsboro;
+    color:white;
+    border-radius: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: #2d789d;
+}
+
+.mayor {
+    background-color: #e77a67;
+}
+
+.mayor:hover:enabled {
+    background-color: #e44c2a;
+}
+
+.menor {
+    background-color: #6495ED;
+}
+
+.menor:hover:enabled {
+    background-color: #4169E1;
+}
+
+p {
+    font-size: 12px;
+    font-weight: 300;
+    font-family: 'Courier New', Courier, monospace;
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    margin: 2px 5px;
+}
+
+a {
+    color: black;
+}
+
+h3{
+    padding: 1rem 1rem;
+    margin: 0rem 0.5rem 2rem;
+    border: solid 2px gainsboro;
+    color:white;
+    border-radius: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: #f44336;
+}
+.mensaje{
+    position: fixed;
+    background-color: #473fb6; 
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.mensaje.ganado{
+    background-color: #4caf50; 
+}
+.mensaje.perdido{
+    background-color: #f44336;
+}
+
+.mensaje h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.mensaje button {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.mensaje button:hover {
+    background-color: lightgray;
+}
+
+button:disabled{
+    background-color: #aaa;
+    cursor: default;
+}
+
+.mazo-cartas {
+    position: absolute;
+    bottom: 30%;
+    left:20%;
+    display: flex;
+  }
+  
+  .carta {
+    transform-origin: center top;
+    transform: rotate(-90deg);
+    position: absolute;
+    margin-left: 0;
+  }
+
+@media (max-width: 600px) {
+    .contenedor-imagenes img {
+        height: auto;
+        margin: 0rem 0.5rem 2rem;
+        width: 45vw;
+    }
+}

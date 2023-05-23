@@ -7,6 +7,7 @@ import { AhorcadoComponent } from './modules/ahorcado/ahorcado.component';
 import { QuienSoyComponent } from './modules/quien-soy/quien-soy.component';
 import { NoLogueadoGuard } from './guards/no-logueado.guard';
 import { PreguntadosComponent } from './modules/preguntados/preguntados.component';
+import { MayorMenorComponent } from './modules/mayor-menor/mayor-menor.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent},
@@ -37,6 +38,11 @@ const routes: Routes = [
     path: "juegos/preguntados", 
     component: PreguntadosComponent,
     loadChildren: () => import('./modules/preguntados/preguntados.module').then(m => m.PreguntadosModule)
+  },
+  { 
+    path: "juegos/mayor-menor", 
+    component: MayorMenorComponent,
+    loadChildren: () => import('./modules/mayor-menor/mayor-menor.module').then(m => m.MayorMenorModule)
   }
 ];
 

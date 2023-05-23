@@ -11,26 +11,26 @@ export class PreguntasService {
   constructor(private http: HttpClient) { }
 
   obtenerPreguntaArte(){
-    return this.http.get("https://example-api-ld94.onrender.com/arte") as Observable<Pregunta>;
+    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/arte") as Observable<Pregunta>;
   }
 
   obtenerPreguntaDeportes(){
-    return this.http.get("https://example-api-ld94.onrender.com/deporte") as Observable<Pregunta>;
+    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/deporte") as Observable<Pregunta>;
   }
 
   obtenerPreguntaHistoria(){
-    return this.http.get("https://example-api-ld94.onrender.com/historia") as Observable<Pregunta>;
+    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/historia") as Observable<Pregunta>;
   }
 
   obtenerPreguntaEntretenimiento(){
-    return this.http.get("https://example-api-ld94.onrender.com/entretenimiento") as Observable<Pregunta>;
+    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/entretenimiento") as Observable<Pregunta>;
   }
 
   obtenerPreguntaGeografia(){
-    return this.http.get("https://example-api-ld94.onrender.com/geografia") as Observable<Pregunta>;
+    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/geografia") as Observable<Pregunta>;
   }
 
   obtenerPreguntaCiencia(){
-    return this.http.get("https://example-api-ld94.onrender.com/ciencia") as Observable<Pregunta>;
+    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/ciencia") as Observable<Pregunta>;
   }
 }

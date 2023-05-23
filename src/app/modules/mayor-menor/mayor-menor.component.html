@@ -1,0 +1,23 @@
+<div class="contenedor">   
+    <h3>La Siguiente Carta: ¿Sera Menor o Mayor?</h3>
+    <div class="contenedor-imagenes">
+        <img [src]="imagenCartaVisible" alt="">
+        <img [src]="imagenCartaAdivinar">
+    </div>
+    <div class="contenedor-botones">
+        <button class="mayor" (click)="adivinarMayor()" [disabled]="mostrarMensajeFinal">Mayor &gt;</button>
+        <button class="menor" (click)="adivinarMenor()" [disabled]="mostrarMensajeFinal">Menor &lt;</button>
+    </div>
+    <div class="mensaje" *ngIf="mostrarMensajeFinal" [ngClass]="{'ganado': puntaje > 0, 'perdido': puntaje < 0}">
+        <h2>{{mensajeFinal}} {{puntaje}} PUNTOS</h2>
+        <button (click)="generarNuevaRonda()">¿Jugar Otra Vez?</button>
+    </div>
+    <div class="puntaje">Puntaje Actual: {{puntajeActual}}</div>
+    <div class="mazo-cartas">
+        <p>Cartas Restantes: {{mazo.restantes}}</p>
+        <div class="carta" *ngFor="let item of [].constructor(mazo.restantes); let i = index" [style.margin-left.px]="i*1.5">
+            <img [src]="'../../../assets/juegos/cartas/'+ (i/2==0?'0':'0bis')+'.png'">
+        </div>
+    </div> 
+</div>
+<p><a href="https://github.com/kurtkaiser/Unity-Blackjack-Game-Tutorial/tree/master/Assets/Sprites/Cards">Imagenes hechas por Mr. Kaiser</a> en Github</p>
