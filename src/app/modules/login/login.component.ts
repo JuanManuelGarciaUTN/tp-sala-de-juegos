@@ -37,7 +37,6 @@ export class LoginComponent {
             datos.password = "";
             this.login.iniciar(datos);
             this.dbUsuarios.generarLogUsuario(usuario);
-            console.log("THIS SHIT IS IT");
             this.router.navigate(["/home"]);
             return;
           }

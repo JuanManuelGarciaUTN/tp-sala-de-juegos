@@ -12,9 +12,7 @@ export class HomeComponent {
   public topMayorMenor: Array<any> = [{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100}];
   public topBlackjack: Array<any> = [{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100},{name: "test", score: 100}];
 
-  constructor(private _usuario: UsuarioService) { 
-    console.log(_usuario.datos);
-  }
+  constructor(private _usuario: UsuarioService) {}
 
   get usuario(){
     return this._usuario;

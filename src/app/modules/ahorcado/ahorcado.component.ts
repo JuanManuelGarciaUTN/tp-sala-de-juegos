@@ -59,7 +59,7 @@ export class AhorcadoComponent {
   }
 
   private ganoElJuego(){
-    const puntaje = this.palabra.length - 3;
+    const puntaje = Math.max(1, this.palabra.length - 5);
     this.mostrarMensajeFinal = true;
     this.mensajeFinal = "GANASTE"; 
     if(this.user.datos?.id){

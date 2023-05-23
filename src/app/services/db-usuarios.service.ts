@@ -37,7 +37,6 @@ export class DbUsuariosService {
     const documento = doc(col, id);
     let datos: { [key in TipoPuntaje]: number } = {} as any;
     datos[tipo] = puntaje;
-    console.log(datos);
     updateDoc(documento, datos);
   }
 }

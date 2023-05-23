@@ -3,23 +3,22 @@
     background-color: #000;
   }
   
-
   .ahorcado-contenedor {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: 85vh;
   }
 
   .ahorcado-imagen {
-    width: 300px;
-    height: 300px;
     background-size: cover;
     background-position: center;
-    margin-bottom: 120px;
+    margin-bottom: 2vh;
   }
   img{
+    height: 45vh;
+    max-height: 600px;
     width: 100%;
   }
 
@@ -27,19 +26,22 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 40%;
+    max-width: 600px;
   }
 
   .letras-botones {
+    display: flex;
+    align-items: end;
+    justify-content: center;
     text-transform: uppercase;
-    display: inline-block;
-    width: 60px;
-    height: 60px;
+    display: flex;
+    font-size: 5vmin;
+    width: 7vmin;
+    height: 7vmin;
     margin: 5px;
     border: none;
     background-color: #2bb52b;
     color: #fff;
-    font-size: 26px;
     text-align: center;
     cursor: pointer;
     border-radius: 5px;
@@ -58,8 +60,8 @@
 
   .palabra-contenedor-letras p{
     text-transform: uppercase;
-    font-size: 50px;
-    width: 40px;
+    font-size: 6vmin;
+    width: 5vmin;
     text-align: center;
     padding: 2px;
     margin: 0px 2px;
@@ -129,5 +131,20 @@
   .mensaje.perdio {
     background-color: #f44336;
     color: #fff;
+  }
+
+  @media (max-height: 600px) {
+    .ahorcado-contenedor {
+      flex-direction: row;
+    }
+
+    .contenedor-letras{
+      max-width: 300px;
+    }
+    .ahorcado-imagen img{
+      height: 70vh;
+      min-width: 30vw;
+    }
+
   }
   

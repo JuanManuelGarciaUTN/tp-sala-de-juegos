@@ -38,7 +38,6 @@ export class ChatComponent {
   private scrollChatAbajo(){
     setTimeout(() => {
       let chat = document.getElementById("chat");
-      console.log(chat);
       if(chat){
         chat.scrollTop += chat.scrollHeight;
       }
@@ -51,9 +50,6 @@ export class ChatComponent {
 
   enviarMensaje(){
     this.scrollChatAbajo();
-    console.log(this.usuario.datos && this.nuevoMensaje != "");
-    console.log(this.nuevoMensaje);
-    console.log(this.usuario.datos);
     if(this.usuario.datos && this.nuevoMensaje != ""){
       let hora = new Date().toISOString()
       console.log(hora);
