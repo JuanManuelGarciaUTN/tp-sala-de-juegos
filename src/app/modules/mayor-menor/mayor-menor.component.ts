@@ -4,18 +4,25 @@ import { Carta } from 'src/app/interfaces/carta';
 import { DbUsuariosService, TipoPuntaje } from 'src/app/services/db-usuarios.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+enum Estado{
+  gano,
+  perdio,
+  empato
+}
+
 @Component({
   selector: 'app-mayor-menor',
   templateUrl: './mayor-menor.component.html',
   styleUrls: ['./mayor-menor.component.scss']
 })
 export class MayorMenorComponent {
+
   public mazo = new MazoDeCartas(false);
   public cartaVisible?: Carta;
   public cartaAdivinar?: Carta;
   public mostrarMensajeFinal: boolean = false;
   public mensajeFinal: string= "";
-  public puntaje: number = 0;
+  public estado: Estado = Estado.empato;
   public puntajeActual: number = 0;
 
   constructor(private user: UsuarioService,
@@ -44,15 +51,11 @@ export class MayorMenorComponent {
     }
     this.cartaAdivinar = undefined;
     this.cartaVisible = this.mazo.obtenerCarta();
-    while(this.cartaVisible?.valor == 1 || this.cartaVisible?.valor == 10){
-      this.cartaVisible = this.mazo.obtenerCarta();
-    }
     this.mostrarMensajeFinal = false;
     this.mensajeFinal = "";
   }
 
   private adivinar(){
-    const puntaje = this.calcularPuntaje();
     this.mostrarMensajeFinal = true;
 
     this.cartaAdivinar = this.mazo.obtenerCarta();
@@ -86,49 +89,25 @@ export class MayorMenorComponent {
   }
 
   private ganar(){
-    this.mensajeFinal = "GANASTE"; 
+    this.estado = Estado.gano;
+    this.mensajeFinal = "GANASTE 1 PUNTO"; 
     this.guardarPuntaje();
   }
 
   private perder(){
-    this.puntaje = this.puntaje - 7;
-    this.mensajeFinal = "PERDISTE "; 
-    this.guardarPuntaje();
+    this.estado = Estado.perdio;
+    this.mensajeFinal = "PERDISTE";
   }
 
   private empatar(){
-	this.puntaje = 0;
+	this.estado = Estado.empato;
     this.mensajeFinal = "EMPATE";
   }
 
-  private calcularPuntaje(){
-    switch(this.cartaVisible?.valor){
-		case 5:
-		case 6:
-			this.puntaje = 5;
-			break;
-
-		case 4:
-		case 7:
-			this.puntaje = 4;
-			break;
-
-		case 3:
-		case 8:
-			this.puntaje = 3;
-			break;
-
-		case 2:
-		case 9:
-			this.puntaje = 2;
-			break;
-    }
-  }
-
   private guardarPuntaje(){
-	this.puntajeActual += this.puntaje
-    if(this.user.datos?.id && this.puntaje != 0){
-      this.user.datos.puntajeMaxMayorMenor = this.user.datos.puntajeMaxMayorMenor + this.puntaje;
+	this.puntajeActual += 1;
+    if(this.user.datos?.id){
+      this.user.datos.puntajeMaxMayorMenor = this.puntajeActual;
       this.db.actulizarPuntaje(TipoPuntaje.mayorMenor, this.user.datos.id, this.user.datos.puntajeMaxMayorMenor);
     }
   }

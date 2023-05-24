@@ -7,8 +7,8 @@
         <strong *ngIf="usuario.datos">Bienvenido, {{usuario.nombre}}</strong>
         <button routerLink="">Home</button>
         <button routerLink="/quien-soy">Quien Soy</button>
-        <button *ngIf="!usuario.datos" routerLink="/login">Login</button>
-        <button *ngIf="!usuario.datos" routerLink="/registro">Registro</button>
-        <button *ngIf="usuario.datos" (click)="cerrarSesion()">Cerrar Sesión</button>
+        <button *ngIf="usuario.datos == undefined" routerLink="/login">Login</button>
+        <button *ngIf="usuario.datos == undefined" routerLink="/registro">Registro</button>
+        <button *ngIf="usuario.datos != undefined" (click)="cerrarSesion()">Cerrar Sesión</button>
     </div>
 </nav>
