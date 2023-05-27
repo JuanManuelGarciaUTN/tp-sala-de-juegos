@@ -61,7 +61,7 @@ export class ChatComponent {
 
   formatearMensaje(mensaje: Mensaje){
     let fecha = new Date(mensaje.hora);
-    fecha.setHours(fecha.getHours() - 3);
+    
     const hora = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false  });
     const autor = mensaje.autor.split("@")[0];
     return  hora+"| " + autor + ": " + mensaje.texto;
