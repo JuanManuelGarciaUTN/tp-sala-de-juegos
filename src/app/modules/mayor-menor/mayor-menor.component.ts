@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { MazoDeCartas } from 'src/app/entidades/mazo-de-cartas';
 import { Carta } from 'src/app/interfaces/carta';
 import { DbUsuariosService, TipoPuntaje } from 'src/app/services/db-usuarios.service';
@@ -26,10 +26,12 @@ export class MayorMenorComponent {
   public puntajeActual: number = 0;
 
   constructor(private user: UsuarioService,
-              private db: DbUsuariosService){
-	if(this.user.datos){
-		this.puntajeActual = this.user.datos.puntajeMaxMayorMenor;
-	}
+              private db: DbUsuariosService,
+              private preload: Renderer2){
+    this.preCargarImagenes(this.generarListaImagenes());
+	  if(this.user.datos){
+		  this.puntajeActual = this.user.datos.puntajeMaxMayorMenor;
+	  }
     this.generarNuevaRonda();
   }
 
@@ -110,5 +112,25 @@ export class MayorMenorComponent {
       this.user.datos.puntajeMaxMayorMenor = this.puntajeActual;
       this.db.actulizarPuntaje(TipoPuntaje.mayorMenor, this.user.datos.id, this.user.datos.puntajeMaxMayorMenor);
     }
+  }
+
+  private preCargarImagenes(imagenUrls: string[]): void {
+    imagenUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+      this.preload.appendChild(document.body, img);
+      document.body.removeChild(img);
+    });
+  }
+  private generarListaImagenes(){
+    let imagenes = [];
+    const textoBase = "../../../assets/juegos/cartas/";
+    for(let i = 1;i< 11; i++){
+      imagenes.push(textoBase+"P"+i+".png");
+      imagenes.push(textoBase+"D"+i+".png");
+      imagenes.push(textoBase+"C"+i+".png");
+      imagenes.push(textoBase+"T"+i+".png");
+    }
+    return imagenes;
   }
 }
