@@ -25,6 +25,7 @@ export class LoginComponent {
   }
 
   logear(){
+      this.limpiarEspacios();
       this.loginInvalido = false;
       this.validando = true;
       const usuario = this.formularioLogin.value;
@@ -43,6 +44,11 @@ export class LoginComponent {
         }
         this.loginInvalido = true;
       });
+  }
+
+  private limpiarEspacios(){
+    this.formularioLogin.get('nombre')?.setValue(this.formularioLogin.get('nombre')?.value.trim());
+    this.formularioLogin.get('password')?.setValue(this.formularioLogin.get('password')?.value.trim());
   }
 
   completarLoginRapido(){

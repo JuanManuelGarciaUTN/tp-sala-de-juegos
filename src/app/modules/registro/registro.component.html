@@ -1,10 +1,10 @@
 <form class="login-form" [formGroup]="formularioRegistro" (ngSubmit)="generarUsuario()">
     <h3>Registro</h3>
     <div class="form-group" >
-        <label for="nombre">Usuario</label>
-        <input type="text" id="nombre" placeholder="Ingrese usuario" formControlName="nombre">
-        <small *ngIf="formularioRegistro.get('nombre')?.touched && formularioRegistro.get('nombre')?.value == ''"> 
-            Debe Ingresar Un Usuario
+        <label for="nombre">Email</label>
+        <input type="text" id="nombre" placeholder="Ingrese email" formControlName="nombre">
+        <small *ngIf="formularioRegistro.get('nombre')?.touched && formularioRegistro.get('nombre')?.errors?.['email']"> 
+            Debe Ingresar Un Email Valido
         </small>
         <small *ngIf="formularioRegistro.get('nombre')?.getError('usuarioExiste')"> 
             Usuario Ya Registrado

@@ -8,6 +8,7 @@ import { QuienSoyComponent } from './modules/quien-soy/quien-soy.component';
 import { NoLogueadoGuard } from './guards/no-logueado.guard';
 import { PreguntadosComponent } from './modules/preguntados/preguntados.component';
 import { MayorMenorComponent } from './modules/mayor-menor/mayor-menor.component';
+import { BlackjackComponent } from './modules/blackjack/blackjack.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent},
@@ -43,6 +44,11 @@ const routes: Routes = [
     path: "juegos/mayor-menor", 
     component: MayorMenorComponent,
     loadChildren: () => import('./modules/mayor-menor/mayor-menor.module').then(m => m.MayorMenorModule)
+  },
+  { 
+    path: "juegos/blackjack", 
+    component: BlackjackComponent,
+    loadChildren: () => import('./modules/blackjack/blackjack.module').then(m => m.BlackjackModule)
   }
 ];
 

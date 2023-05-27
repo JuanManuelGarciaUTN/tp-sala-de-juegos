@@ -1,0 +1,43 @@
+<div class="cartas">
+    <p class="puntos-totales">Puntaje = {{puntos}}</p>
+    <div class="mano maquina">
+        <img *ngFor="let carta of manoDeLaMaquina; let i = index"
+        [src]="'../../../assets/juegos/cartas/'+carta.codigo+'.png'"
+        >
+        <p class="puntaje" *ngIf="manoDeLaMaquina.length != 0">{{sumaMaquina}}</p>
+    </div>
+    <div class="mano jugador" >
+        <p class="puntaje" *ngIf="manoDelJugador.length != 0" >{{sumaJugador}}</p>
+        <img *ngFor="let carta of manoDelJugador; let i = index"
+        [src]="'../../../assets/juegos/cartas/'+carta.codigo+'.png'"
+        >
+    </div>
+</div>
+<div class="botones">
+    <p *ngIf="estado == estadosPosibles.apostando" >Apuesta = {{apuesta}}</p>
+    <div class="lista-botones-apuesta" *ngIf="estado == estadosPosibles.apostando">
+        <button (click)="apostar(1)" [disabled]="puntos<1">1</button>
+        <button (click)="apostar(5)" [disabled]="puntos<5">5</button>
+        <button (click)="apostar(10)" [disabled]="puntos<10">10</button>
+        <button (click)="apostar(25)" [disabled]="puntos<25">25</button>
+        <button (click)="apostar(100)" [disabled]="puntos<100">100</button>
+        <button (click)="apostar(250)" [disabled]="puntos<250">250</button>
+        <button (click)="apostar(1000)" [disabled]="puntos<1000">1000</button>
+        <button (click)="apostar(-apuesta)">R</button>
+    </div>
+    <div class="lista-botones-juego">
+        <button (click)="repartir()" [disabled]="apuesta<1" *ngIf="estado == estadosPosibles.apostando">Repartir</button>
+        <button (click)="pedirCarta()" *ngIf="estado == estadosPosibles.primerTurno || estado == estadosPosibles.otroTurno">Pedir</button>
+        <button (click)="doblarApuesta()" *ngIf="estado == estadosPosibles.primerTurno">Doblar</button>
+        <button (click)="iniciarTurnoMaquina()" *ngIf="estado == estadosPosibles.primerTurno || estado == estadosPosibles.otroTurno">Plantarse</button>
+        <button (click)="rendirse()" *ngIf="estado == estadosPosibles.primerTurno">Rendirse</button>
+    </div>
+</div>
+<div class="mensaje" *ngIf="mensaje != ''" [ngClass]="{'ganado': estado == estadosPosibles.juegoGanado, 'perdido': estado == estadosPosibles.juegoPerdido}">
+    <h2>{{mensaje}}</h2>
+    <button (click)="iniciarJuego()">¿Jugar Otra Vez?</button>
+</div>
+<p class="link-creador-cartas"><a href="https://github.com/kurtkaiser/Unity-Blackjack-Game-Tutorial/tree/master/Assets/Sprites/Cards">Imagenes hechas por Mr. Kaiser en Github</a></p>
+
+
+

@@ -1,1 +1,18 @@
-<p>preguntados works!</p>
+<div class="pregunta">
+    <h2>Preguntados: {{tema}}</h2>
+    <p>{{pregunta}}</p>
+</div>
+<div class="lista-respuestas">
+    <button *ngFor="let datos of respuestas; let i = index" 
+        (click)="seleccionarRespuesta(datos.estado)"
+        [disabled]="mostrandoMensajeFinal || generandoPregunta"
+        class="respuesta"
+        [ngClass]="{'correcta': mostrandoMensajeFinal && datos.estado, 'incorrecta': mostrandoMensajeFinal && !datos.estado}"
+    >
+        {{datos.respuesta}}
+    </button>
+</div>
+<div *ngIf="mostrandoMensajeFinal" class="mensaje-final" [ngClass]="{'ganado': gano}">
+    <p>{{mensajeFinal}}</p>
+    <button (click)="iniciarJuego()">¿Otra Pregunta?</button>
+</div>

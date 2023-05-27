@@ -20,13 +20,14 @@ export class RegistroComponent {
             private login: UsuarioService,
             private router: Router) {
     this.formularioRegistro = new FormGroup({
-      nombre: new FormControl("", [Validators.required], usuarioExiste(dbUsuarios)),
+      nombre: new FormControl("", [Validators.required, Validators.email], usuarioExiste(dbUsuarios)),
       password: new FormControl("", [Validators.minLength(16), Validators.required]),
       repetirPassword: new FormControl("", [Validators.minLength(16), Validators.required]) 
     }, [confirmarClave()]);
   }
 
   generarUsuario(){
+    this.limpiarEspacios();
     let usuario: Usuario = {nombre: this.formularioRegistro.value.nombre,
                            password: this.formularioRegistro.value.password,
                            puntajeMaxAhorcado: 0,
@@ -38,5 +39,11 @@ export class RegistroComponent {
     this.login.iniciar(usuario)
     this.dbUsuarios.generarLogUsuario(usuario);
     this.router.navigate(["/home"]);
+  }
+
+  private limpiarEspacios(){
+    this.formularioRegistro.get('nombre')?.setValue(this.formularioRegistro.get('nombre')?.value.trim());
+    this.formularioRegistro.get('password')?.setValue(this.formularioRegistro.get('password')?.value.trim());
+    this.formularioRegistro.get('repetirPassword')?.setValue(this.formularioRegistro.get('repetirPassword')?.value.trim());
   }
 }

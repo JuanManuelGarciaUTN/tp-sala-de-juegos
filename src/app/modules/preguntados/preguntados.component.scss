@@ -1,0 +1,93 @@
+:host{
+    display: grid;
+    grid-template: auto;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    background-color: whitesmoke;
+    border-bottom: 1px solid black;
+}
+
+h2{
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+.pregunta{
+   // min-width: ;
+    background-color: #6495ED;
+    padding: 1vw;
+    border-radius: 20px;
+    border: 1px solid gainsboro;
+}
+
+.pregunta p{
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.lista-respuestas{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.respuesta {
+    width: 40vw;
+    background-color: #6495ED;
+    padding: 1vw;
+    border-radius: 20px;
+    font-size: 26px;
+}
+
+.respuesta:hover:enabled {
+    background-color: #4169E1;
+}
+
+.mensaje-final{
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f44336;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.mensaje-final.ganado{
+    background-color: #4caf50; 
+}
+
+.mensaje-final p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.correcta{
+    background-color: #6ce470; 
+}
+
+.incorrecta{
+    background-color: #e46c6c; 
+}
+
+.mensaje-final button {
+    display: inline-block;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.mensaje-final button:hover {
+    background-color: lightgray;
+}
