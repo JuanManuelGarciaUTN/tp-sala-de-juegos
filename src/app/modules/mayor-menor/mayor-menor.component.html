@@ -21,8 +21,8 @@
         </div>
     </div>
     <div class="contenedor-botones">
-        <button class="mayor" (click)="adivinarMayor()" [disabled]="mostrarMensajeFinal">Mayor &gt;</button>
-        <button class="menor" (click)="adivinarMenor()" [disabled]="mostrarMensajeFinal">Menor &lt;</button>
+        <button class="mayor" (click)="adivinarMayor()" [disabled]="mostrarMensajeFinal && !cartaVisible">Mayor &gt;</button>
+        <button class="menor" (click)="adivinarMenor()" [disabled]="mostrarMensajeFinal && !cartaVisible">Menor &lt;</button>
     </div>
     <div class="mensaje" *ngIf="mostrarMensajeFinal" [ngClass]="{'ganado': estado == 0, 'perdido': estado == 1}">
         <h2>{{mensajeFinal}}</h2>
