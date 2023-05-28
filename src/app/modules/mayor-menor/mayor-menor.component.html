@@ -2,8 +2,18 @@
 
     <h3>La Siguiente Carta: ¿Sera Menor o Mayor?</h3>
     <div class="contenedor-imagenes">
-        <img [src]="imagenCartaVisible" alt="">
-        <img [src]="imagenCartaAdivinar">
+        <div class="carta-animacion-contenedor">
+            <div class="carta-animacion" [ngClass]="{'rotar': cartaVisible}">
+                <img class="carta-animacion-dorso" src="../../../assets/juegos/cartas/0.png">
+                <img class="carta-animacion-frente" [src]="imagenCartaVisible">
+            </div>
+        </div>
+        <div class="carta-animacion-contenedor">
+            <div class="carta-animacion" [ngClass]="{'rotar': cartaAdivinar}">
+                <img class="carta-animacion-dorso" src="../../../assets/juegos/cartas/0.png">
+                <img class="carta-animacion-frente" [src]="imagenCartaAdivinar">
+            </div>
+        </div>
         <div class="mazo-cartas">
             <div class="carta" *ngFor="let item of [].constructor(mazo.restantes); let i = index" [style.margin-top.px]="-i*1.5">
                 <img [src]="'../../../assets/juegos/cartas/flip'+ (i/2==0?'0':'0bis')+'.png'">

@@ -36,7 +36,11 @@ export class MayorMenorComponent {
   }
 
   get imagenCartaVisible(){
-    return "../../../assets/juegos/cartas/"+this.cartaVisible?.codigo+".png";
+    let codigo = "0";
+    if(this.cartaVisible){
+      codigo = this.cartaVisible.codigo;
+    }
+    return "../../../assets/juegos/cartas/"+codigo+".png";
   }
 
   get imagenCartaAdivinar(){
@@ -52,7 +56,10 @@ export class MayorMenorComponent {
       this.mazo.reiniciarMazo();
     }
     this.cartaAdivinar = undefined;
-    this.cartaVisible = this.mazo.obtenerCarta();
+    this.cartaVisible = undefined;
+    setTimeout(() => {
+      this.cartaVisible = this.mazo.obtenerCarta();
+    }, 500);
     this.mostrarMensajeFinal = false;
     this.mensajeFinal = "";
   }

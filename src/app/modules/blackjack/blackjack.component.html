@@ -23,12 +23,12 @@
         <button (click)="apostar(100)" [disabled]="puntos<100">100</button>
         <button (click)="apostar(250)" [disabled]="puntos<250">250</button>
         <button (click)="apostar(1000)" [disabled]="puntos<1000">1000</button>
-        <button (click)="apostar(-apuesta)">R</button>
+        <button (click)="apostar(-apuesta)">Reset</button>
     </div>
     <div class="lista-botones-juego">
         <button (click)="repartir()" [disabled]="apuesta<1" *ngIf="estado == estadosPosibles.apostando">Repartir</button>
         <button (click)="pedirCarta()" *ngIf="estado == estadosPosibles.primerTurno || estado == estadosPosibles.otroTurno">Pedir</button>
-        <button (click)="doblarApuesta()" *ngIf="estado == estadosPosibles.primerTurno">Doblar</button>
+        <button (click)="doblarApuesta()" *ngIf="estado == estadosPosibles.primerTurno && apuesta <= puntos">Doblar</button>
         <button (click)="iniciarTurnoMaquina()" *ngIf="estado == estadosPosibles.primerTurno || estado == estadosPosibles.otroTurno">Plantarse</button>
         <button (click)="rendirse()" *ngIf="estado == estadosPosibles.primerTurno">Rendirse</button>
     </div>
