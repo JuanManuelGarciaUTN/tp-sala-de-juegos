@@ -31,7 +31,7 @@ export class PreguntadosComponent {
 	this.generandoPregunta = true;
 	this.mostrandoMensajeFinal = false;
 	this.mensajeFinal = "";
-	this.pregunta = "Generando Pregunta...";
+	this.pregunta = "Generando Pregunta...\nPrimera pregunta puede tardar por inactividad de la API";
 	this.obtenerPreguntaAleatoria();
   }
 
