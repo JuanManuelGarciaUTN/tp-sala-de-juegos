@@ -8,29 +8,30 @@ import { Observable } from 'rxjs';
 })
 export class PreguntasService {
 
+  private api = "https://example-api-ld94.onrender.com/";
   constructor(private http: HttpClient) { }
 
   obtenerPreguntaArte(){
-    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/arte") as Observable<Pregunta>;
+    return this.http.get(this.api+"arte") as Observable<Pregunta>;
   }
 
   obtenerPreguntaDeportes(){
-    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/deporte") as Observable<Pregunta>;
+    return this.http.get(this.api+"deporte") as Observable<Pregunta>;
   }
 
   obtenerPreguntaHistoria(){
-    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/historia") as Observable<Pregunta>;
+    return this.http.get(this.api+"historia") as Observable<Pregunta>;
   }
 
   obtenerPreguntaEntretenimiento(){
-    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/entretenimiento") as Observable<Pregunta>;
+    return this.http.get(this.api+"entretenimiento") as Observable<Pregunta>;
   }
 
   obtenerPreguntaGeografia(){
-    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/geografia") as Observable<Pregunta>;
+    return this.http.get(this.api+"geografia") as Observable<Pregunta>;
   }
 
   obtenerPreguntaCiencia(){
-    return this.http.get("https://api-preguntas-multiple-choice.cyclic.app/ciencia") as Observable<Pregunta>;
+    return this.http.get(this.api+"ciencia") as Observable<Pregunta>;
   }
 }
